@@ -1,0 +1,60 @@
+{
+  "name": "microkit",
+  "version": "0.0.0",
+  "description": "Opiniated microservice toolkit",
+  "homepage": "https://github.com/x-truder/microkit",
+  "author": {
+    "name": "Jaka Hudoklin",
+    "email": "jakahudoklin@gmail.com",
+    "url": "https://x-truder.net"
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "keywords": [
+    "microservices",
+    "toolkit",
+    "kit",
+    "queue",
+    "logging"
+  ],
+  "devDependencies": {
+    "eslint": "^2.1.0",
+    "eslint-config-xo-space": "^0.10.0",
+    "gulp": "^3.9.0",
+    "gulp-coveralls": "^0.1.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.10.3",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-mocha": "^2.0.0",
+    "gulp-nsp": "^2.1.0",
+    "gulp-plumber": "^1.0.0",
+    "sinon": "^1.17.4"
+  },
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "mocha": true
+    }
+  },
+  "repository": "x-truder/microkit",
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "amqplib": "^0.4.1",
+    "amqplib-retry": "^1.1.2",
+    "bluebird": "^3.3.5",
+    "bunyan": "^1.8.1",
+    "chai": "^3.5.0",
+    "lodash": "^4.11.2",
+    "mocha": "^2.4.5",
+    "moment": "^2.13.0",
+    "raven": "^0.10.0",
+    "statsd-client": "^0.2.2"
+  }
+}
