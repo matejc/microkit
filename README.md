@@ -14,6 +14,7 @@ $ npm install --save microkit
 ```js
 var MicroKit = require('microkit');
 
+// Instantiate MicroKit
 var microkit = new MicroKit({
   name: 'myAwesomeService',
   logLevel: 'info',
@@ -22,6 +23,10 @@ var microkit = new MicroKit({
   error: {name: 'raven'}, // error reporter config
   stats: {name: 'statsd'} // stats reporter config
 });
+
+/** or for development
+ *  var microkit = new MicroKit({name: 'myAwesomeService'});
+ **/
 
 // Logging
 microkit.logger.info('message', {key: 'value'});
