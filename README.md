@@ -17,9 +17,10 @@ var MicroKit = require('microkit');
 var microkit = new MicroKit({
   name: 'myAwesomeService',
   logLevel: 'info',
-  queue: {name: 'amqp'},
-  error: {name: 'raven'},
-  stats: {name: 'statsd'}
+  catchGlobal: true, // catch global errors
+  queue: {name: 'amqp'}, // queue provider config
+  error: {name: 'raven'}, // error reporter config
+  stats: {name: 'statsd'} // stats reporter config
 });
 
 // Logging
