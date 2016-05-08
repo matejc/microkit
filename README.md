@@ -51,7 +51,7 @@ microkit.stats.increment('some.key', 10);
 microkit.stats.gauge('some.key', 9999.999);
 microkit.stats.timer('some.key', new Date());
 setTimeout(() => {
-  microkit.stats.time('some.key', new Date());
+  microkit.stats.timer('some.key', new Date());
 }, 1000);
 ```
 
