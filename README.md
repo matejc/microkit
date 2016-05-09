@@ -19,17 +19,23 @@ var microkit = new MicroKit({
   name: 'myAwesomeService',
   logLevel: 'info',
   catchGlobal: true, // catch global errors
-  queue: {name: 'amqp'}, // queue provider config
-  error: {name: 'raven'}, // error reporter config
-  stats: {name: 'statsd'} // stats reporter config
+  queue: {
+    name: 'amqp',
+    url: "amqp://localhost",
+    queue: 'myAwesomeService'
+  }, // queue provider config
+  error: {name: 'raven', url: "https://dd..ba:d8..35@app.getsentry.com/24343"}, // error reporter config
+  stats: {name: 'statsd', host: "statsd.example.com"} // stats reporter config
 });
 
-/** or for development
+/** or for development it will log on stdout
  *  var microkit = new MicroKit({name: 'myAwesomeService'});
  **/
 
 // Logging
+microkit.logger.debug('message', {key: 'value'});
 microkit.logger.info('message', {key: 'value'});
+microkit.logger.warn('message', {key: 'value'});
 microkit.logger.fatal(new Error("some error"));
 microkit.logger.error('message', {key: 'value', err: new Error("some error")});
 
@@ -39,8 +45,8 @@ logger.info('message', {key: 'value'});
 // Queue
 microkit.queue.publish({key: 'value'}, {some: 'data'});
 microkit.queue.subscribe({key: 'value'}, (msg, info) => {
-  console.log(msg);
-  console.log(info.key);
+  console.log("message", msg);
+  console.log("key", info.key);
 });
 
 // Error reporting
