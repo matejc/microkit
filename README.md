@@ -59,6 +59,9 @@ microkit.stats.timer('some.key', new Date());
 setTimeout(() => {
   microkit.stats.timer('some.key', new Date());
 }, 1000);
+
+// Exit handling
+microkit.onExit(() => server.close());
 ```
 
 ## License
