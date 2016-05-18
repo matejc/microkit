@@ -68,5 +68,11 @@ describe('microkit', () => {
 
       microkit.queue.publish({prop1: 'value1'}, {key: 'value'});
     });
+
+    it('should publish object', () => {
+      const microkit = new MicroKit({name: 'test'});
+
+      microkit.queue.publish({key: {prop1: 'value1'}, message: {key: 'value'}});
+    });
   });
 });

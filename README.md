@@ -44,6 +44,7 @@ logger.info('message', {key: 'value'});
 
 // Queue
 microkit.queue.publish({key: 'value'}, {some: 'data'});
+microkit.queue.publish({key: {key: 'value'}, message: {key: 'value'}});
 microkit.queue.subscribe({key: 'value'}, (msg, info) => {
   console.log("message", msg);
   console.log("key", info.key);
