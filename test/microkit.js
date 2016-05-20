@@ -21,13 +21,23 @@ describe('microkit', () => {
 
       microkit.logger.error('some message', 1, 2, 3, {key: 'value'}, new Error());
     });
+
+    it('should log to multiple', () => {
+      const microkit = new MicroKit({
+        name: 'test', logger: {
+          name: 'multy', loggers: [{name: 'console'}, {name: 'console'}]
+        }
+      });
+
+      microkit.logger.info('some message', 1, 2, 3, {key: 'value'}, new Error());
+    });
   });
 
   describe('error', () => {
     it('should capture error', () => {
       const microkit = new MicroKit({name: 'test'});
 
-      microkit.error.capture(new Error());
+      microkit.error.capture(new Error(), {key: 'value'});
     });
   });
 
