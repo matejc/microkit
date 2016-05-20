@@ -19,7 +19,7 @@ describe('microkit', () => {
     it('should get logger and log a message with context', () => {
       const microkit = new MicroKit({name: 'test'});
 
-      microkit.logger.error('some message', 1, 2, 3, {err: new Error(), key: 'value'});
+      microkit.logger.error('some message', 1, 2, 3, {key: 'value'}, new Error());
     });
   });
 
