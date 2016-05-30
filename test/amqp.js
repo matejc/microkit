@@ -3,14 +3,19 @@
 const expect = require('chai').expect;
 
 const Amqp = require('../lib/queue/amqp');
+const MicroKit = require('../lib');
 
 describe('Amqp', () => {
   beforeEach(() => {
-    this.amqp = new Amqp({url: process.env.AMQP_URL || 'amqp://localhost'});
+    const microkit = new MicroKit({name: 'test'});
+    this.amqp = new Amqp(
+      {url: process.env.AMQP_URL || 'amqp://localhost'},
+      {logger: microkit.logger}
+    );
   });
 
   afterEach(() => {
-    return this.amqp.close();
+    return this.amqp.dispose();
   });
 
   it('should publish and subscribe on topic exchange', next => {
@@ -27,7 +32,7 @@ describe('Amqp', () => {
     const label = {selector1: 'value1'};
     this.amqp.subscribe(label, (msg, info) => {
       expect(msg).to.be.deep.equal({key: 'value'});
-      expect(info.key).to.be.deep.equal(label);
+      expect(info.headers).to.be.deep.equal(label);
       process.nextTick(next);
     }).then(() => {
       return this.amqp.publish(label, {key: 'value'});
