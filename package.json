@@ -2,11 +2,11 @@
   "name": "microkit",
   "version": "0.2.3",
   "description": "Opiniated microservice toolkit",
-  "homepage": "https://github.com/x-truder/microkit",
+  "homepage": "https://github.com/proteuslabs/microkit",
   "author": {
     "name": "Jaka Hudoklin",
     "email": "jakahudoklin@gmail.com",
-    "url": "https://x-truder.net"
+    "url": "https://proteuslabs.io"
   },
   "files": [
     "lib"

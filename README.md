@@ -67,7 +67,7 @@ microkit.onExit(() => server.close());
 
 ## License
 
-MIT © [Jaka Hudoklin](https://x-truder.net)
+MIT © [ProteusLabs](https://proteuslabs.io)
 
 [npm-image]: https://badge.fury.io/js/microkit.svg
 [npm-url]: https://npmjs.org/package/microkit
