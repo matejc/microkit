@@ -56,6 +56,8 @@
     "moment": "^2.13.0",
     "raven": "^0.10.0",
     "statsd-client": "^0.2.2",
-    "swagger-client": "^2.1.14"
+    "swagger-client": "^2.1.14",
+    "yargs": "^4.7.1",
+    "yarsay": "^1.0.5"
   }
 }
