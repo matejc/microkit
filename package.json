@@ -55,6 +55,7 @@
     "mocha": "^2.4.5",
     "moment": "^2.13.0",
     "raven": "^0.10.0",
-    "statsd-client": "^0.2.2"
+    "statsd-client": "^0.2.2",
+    "swagger-client": "^2.1.14"
   }
 }
