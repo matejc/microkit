@@ -63,6 +63,10 @@ setTimeout(() => {
 
 // Exit handling
 microkit.onExit(() => server.close());
+
+// Express integration (logging, error reporting)
+app.use(microkit.express.preHandler); // before all middlewares
+app.use(microkit.express.postHandler); // after middlewares
 ```
 
 ## License
