@@ -25,7 +25,13 @@ var microkit = new MicroKit({
     queue: 'myAwesomeService'
   }, // queue provider config
   error: {name: 'raven', url: "https://dd..ba:d8..35@app.getsentry.com/24343"}, // error reporter config
-  stats: {name: 'statsd', host: "statsd.example.com"} // stats reporter config
+  stats: {name: 'statsd', host: "statsd.example.com"}, // stats reporter config
+  api: {
+    name: 'swagger',
+    services: {
+      serviceA: {url: 'http://api.domain.com/swagger.yaml'},
+    }
+  }
 });
 
 /** or for development it will log on stdout
@@ -67,6 +73,9 @@ microkit.onExit(() => server.close());
 // Express integration (logging, error reporting)
 app.use(microkit.express.preHandler); // before all middlewares
 app.use(microkit.express.postHandler); // after middlewares
+
+// API calling
+microkit.api.call('serviceA', 'getUser', {id: '123-456'});
 ```
 
 ## License
