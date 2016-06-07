@@ -1,6 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
+const EventEmitter = require('events');
 
 const Amqp = require('../lib/queue/amqp');
 const MicroKit = require('../lib');
@@ -10,7 +11,10 @@ describe('Amqp', () => {
     const microkit = new MicroKit({name: 'test'});
     this.amqp = new Amqp(
       {url: process.env.AMQP_URL || 'amqp://localhost'},
-      {logger: microkit.logger}
+      {
+        logger: microkit.logger,
+        events: new EventEmitter()
+      }
     );
   });
 
@@ -19,9 +23,9 @@ describe('Amqp', () => {
   });
 
   it('should publish and subscribe on topic exchange', next => {
-    this.amqp.subscribe('a.b.c.d', (msg, info) => {
+    this.amqp.subscribe('a.b.c.d', (msg, event) => {
       expect(msg).to.be.deep.equal({key: 'value'});
-      expect(info.key).to.be.equal('a.b.c.d');
+      expect(event.id).to.be.equal('a.b.c.d');
       process.nextTick(next);
     }).then(() => {
       return this.amqp.publish('a.b.c.d', {key: 'value'});
@@ -30,9 +34,9 @@ describe('Amqp', () => {
 
   it('should publish and subscribe to headers exchange', next => {
     const label = {selector1: 'value1'};
-    this.amqp.subscribe(label, (msg, info) => {
+    this.amqp.subscribe(label, (msg, event) => {
       expect(msg).to.be.deep.equal({key: 'value'});
-      expect(info.headers).to.be.deep.equal(label);
+      expect(event.id).to.be.deep.equal(label);
       process.nextTick(next);
     }).then(() => {
       return this.amqp.publish(label, {key: 'value'});
