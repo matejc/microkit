@@ -23,8 +23,8 @@ describe('Amqp', () => {
   });
 
   it('should publish and subscribe on topic exchange', next => {
-    this.amqp.subscribe('a.b.c.d', (msg, event) => {
-      expect(msg).to.be.deep.equal({key: 'value'});
+    this.amqp.subscribe('a.b.c.d', event => {
+      expect(event.data).to.be.deep.equal({key: 'value'});
       expect(event.id).to.be.equal('a.b.c.d');
       process.nextTick(next);
     }).then(() => {
@@ -34,8 +34,8 @@ describe('Amqp', () => {
 
   it('should publish and subscribe to headers exchange', next => {
     const label = {selector1: 'value1'};
-    this.amqp.subscribe(label, (msg, event) => {
-      expect(msg).to.be.deep.equal({key: 'value'});
+    this.amqp.subscribe(label, event => {
+      expect(event.data).to.be.deep.equal({key: 'value'});
       expect(event.id).to.be.deep.equal(label);
       process.nextTick(next);
     }).then(() => {
