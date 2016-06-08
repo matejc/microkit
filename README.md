@@ -76,6 +76,9 @@ app.use(microkit.express.postHandler); // after middlewares
 
 // API calling
 microkit.api.call('serviceA', 'getUser', {id: '123-456'});
+
+// config
+microkit.config.get('key.value');
 ```
 
 ## License
