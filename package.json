@@ -59,6 +59,7 @@
     "raven": "^0.10.0",
     "statsd-client": "^0.2.2",
     "swagger-client": "^2.1.14",
+    "yamljs": "^0.2.7",
     "yargs": "^4.7.1",
     "yarsay": "^1.0.5"
   }
