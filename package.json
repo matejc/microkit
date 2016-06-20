@@ -41,7 +41,6 @@
   },
   "repository": "x-truder/microkit",
   "scripts": {
-    "prepublish": "gulp prepublish",
     "test": "gulp"
   },
   "license": "MIT",
