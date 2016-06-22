@@ -45,6 +45,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "amqp-delay.node": "^0.2.0",
     "amqplib": "^0.4.1",
     "amqplib-retry": "^1.1.2",
     "bluebird": "^3.3.5",
