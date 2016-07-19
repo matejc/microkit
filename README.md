@@ -79,6 +79,12 @@ microkit.api.call('serviceA', 'getUser', {id: '123-456'});
 
 // config
 microkit.config.get('key.value');
+
+// common errors
+const MyConnectionError = microkit.errors.ConnectionError.extend({
+  name: 'MyConnectionError'
+});
+throw new MyConnectionError({code: 'database_error', error: err});
 ```
 
 ## License
