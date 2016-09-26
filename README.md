@@ -93,9 +93,9 @@ MIT © [ProteusLabs](https://proteuslabs.io)
 
 [npm-image]: https://badge.fury.io/js/microkit.svg
 [npm-url]: https://npmjs.org/package/microkit
-[travis-image]: https://travis-ci.org/x-truder/microkit.svg?branch=master
-[travis-url]: https://travis-ci.org/x-truder/microkit
-[daviddm-image]: https://david-dm.org/x-truder/microkit.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/x-truder/microkit
-[coveralls-image]: https://coveralls.io/repos/x-truder/microkit/badge.svg
-[coveralls-url]: https://coveralls.io/r/x-truder/microkit
+[travis-image]: https://travis-ci.org/proteuslabs/microkit.svg?branch=master
+[travis-url]: https://travis-ci.org/proteuslabs/microkit
+[daviddm-image]: https://david-dm.org/proteuslabs/microkit.svg?theme=shields.io
+[daviddm-url]: https://david-dm.org/proteuslabs/microkit
+[coveralls-image]: https://coveralls.io/repos/proteuslabs/microkit/badge.svg
+[coveralls-url]: https://coveralls.io/r/proteuslabs/microkit
