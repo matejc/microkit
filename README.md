@@ -60,12 +60,7 @@ microkit.queue.subscribe({key: 'value'}, (msg, info) => {
 microkit.error.capture(new Error('some error'));
 
 // Metrics
-microkit.stats.increment('some.key', 10);
-microkit.stats.gauge('some.key', 9999.999);
-microkit.stats.timer('some.key', new Date());
-setTimeout(() => {
-  microkit.stats.timer('some.key', new Date());
-}, 1000);
+microkit.metrics.send('some.metric', 10, {tag1: 'value', tag2: 'value2'});
 
 // Exit handling
 microkit.onExit(() => server.close());
