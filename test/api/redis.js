@@ -4,7 +4,7 @@ const expect = require('chai').expect;
 const fakeredis = require('fakeredis');
 const Promise = require('bluebird');
 
-const MicroKit = require('../lib');
+const MicroKit = require('../../lib');
 
 Promise.promisifyAll(fakeredis.RedisClient.prototype);
 Promise.promisifyAll(fakeredis.Multi.prototype);
